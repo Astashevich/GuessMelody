@@ -31,13 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FGame));
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.buttonNext = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelCounter1 = new System.Windows.Forms.Label();
+            this.labelCounter2 = new System.Windows.Forms.Label();
+            this.buttonPause = new System.Windows.Forms.Button();
+            this.buttonContinue = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
             // WMP
             // 
             this.WMP.Enabled = true;
-            this.WMP.Location = new System.Drawing.Point(21, 556);
+            this.WMP.Location = new System.Drawing.Point(-5, 621);
             this.WMP.Name = "WMP";
             this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
             this.WMP.Size = new System.Drawing.Size(213, 45);
@@ -47,13 +53,73 @@
             // buttonNext
             // 
             this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.25F);
-            this.buttonNext.Location = new System.Drawing.Point(240, 467);
+            this.buttonNext.Location = new System.Drawing.Point(12, 527);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(217, 48);
+            this.buttonNext.Size = new System.Drawing.Size(256, 76);
             this.buttonNext.TabIndex = 1;
             this.buttonNext.Text = "Следующая";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(69, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 39);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Игрок 1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(461, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 39);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Игрок 2";
+            // 
+            // labelCounter1
+            // 
+            this.labelCounter1.AutoSize = true;
+            this.labelCounter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCounter1.Location = new System.Drawing.Point(118, 122);
+            this.labelCounter1.Name = "labelCounter1";
+            this.labelCounter1.Size = new System.Drawing.Size(36, 39);
+            this.labelCounter1.TabIndex = 4;
+            this.labelCounter1.Text = "0";
+            // 
+            // labelCounter2
+            // 
+            this.labelCounter2.AutoSize = true;
+            this.labelCounter2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCounter2.Location = new System.Drawing.Point(513, 122);
+            this.labelCounter2.Name = "labelCounter2";
+            this.labelCounter2.Size = new System.Drawing.Size(36, 39);
+            this.labelCounter2.TabIndex = 5;
+            this.labelCounter2.Text = "0";
+            // 
+            // buttonPause
+            // 
+            this.buttonPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPause.Location = new System.Drawing.Point(283, 527);
+            this.buttonPause.Name = "buttonPause";
+            this.buttonPause.Size = new System.Drawing.Size(178, 76);
+            this.buttonPause.TabIndex = 6;
+            this.buttonPause.Text = "Пауза";
+            this.buttonPause.UseVisualStyleBackColor = true;
+            // 
+            // buttonContinue
+            // 
+            this.buttonContinue.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.75F);
+            this.buttonContinue.Location = new System.Drawing.Point(470, 527);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(178, 76);
+            this.buttonContinue.TabIndex = 7;
+            this.buttonContinue.Text = "Продолжить";
+            this.buttonContinue.UseVisualStyleBackColor = true;
             // 
             // FGame
             // 
@@ -61,15 +127,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GuessMelody.Properties.Resources.music_notes_treble_clef_flat_sharp_symbols_flying_vector_design_676239_3008;
             this.ClientSize = new System.Drawing.Size(670, 632);
+            this.Controls.Add(this.buttonContinue);
+            this.Controls.Add(this.buttonPause);
+            this.Controls.Add(this.labelCounter2);
+            this.Controls.Add(this.labelCounter1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.WMP);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FGame";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FGame";
+            this.Text = "Игра";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FGame_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -77,5 +152,11 @@
 
         private AxWMPLib.AxWindowsMediaPlayer WMP;
         private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelCounter1;
+        private System.Windows.Forms.Label labelCounter2;
+        private System.Windows.Forms.Button buttonPause;
+        private System.Windows.Forms.Button buttonContinue;
     }
 }

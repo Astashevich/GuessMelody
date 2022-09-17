@@ -21,13 +21,17 @@ namespace GuessMelody
 
         public static void ReadMusic()
         {
-            string[] musicFiles = Directory.GetFiles(
-                LastFolder, 
-                "*.mp3", 
-                AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            try
+            {
+                string[] musicFiles = Directory.GetFiles(
+                    LastFolder,
+                    "*.mp3",
+                    AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
 
-            MusicList.Clear();
-            MusicList.AddRange(musicFiles);
+                MusicList.Clear();
+                MusicList.AddRange(musicFiles);
+            }
+            catch { }
         }
 
         public static void WriteParam()
