@@ -74,5 +74,10 @@ namespace GuessMelody
             comboBoxMusicDuration.Text = Victorina.MusicDuration.ToString();
             cbRandomStart.Checked = Victorina.RandomStart;
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
