@@ -81,6 +81,7 @@
             this.Name = "FMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Угадай мелодию";
+            this.Load += new System.EventHandler(this.FMain_Load);
             this.ResumeLayout(false);
 
         }

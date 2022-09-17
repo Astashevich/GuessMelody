@@ -29,6 +29,8 @@ namespace GuessMelody
                     "*.mp3",
                     cbAllDirectory.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
 
+                Victorina.LastFolder = dialog.SelectedPath;
+
                 listBox1.Items.Clear();
                 listBox1.Items.AddRange(music_list);
                 Victorina.MusicList.Clear();
@@ -44,13 +46,33 @@ namespace GuessMelody
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            Victorina.AllDirectories = cbAllDirectory.Checked;
+            Victorina.GameDuration = Convert.ToInt32(comboBoxGameDuration.Text);
+            Victorina.MusicDuration = Convert.ToInt32(comboBoxMusicDuration.Text);
+            Victorina.RandomStart = cbRandomStart.Checked;
             Victorina.WriteParam();
             Hide();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            SetParams();
             Hide();
+        }
+
+        private void FParams_Load(object sender, EventArgs e)
+        {
+            SetParams();
+            listBox1.Items.Clear();
+            listBox1.Items.AddRange(Victorina.MusicList.ToArray());
+        }
+
+        private void SetParams()
+        {
+            cbAllDirectory.Checked = Victorina.AllDirectories;
+            comboBoxGameDuration.Text = Victorina.GameDuration.ToString();
+            comboBoxMusicDuration.Text = Victorina.MusicDuration.ToString();
+            cbRandomStart.Checked = Victorina.RandomStart;
         }
     }
 }
