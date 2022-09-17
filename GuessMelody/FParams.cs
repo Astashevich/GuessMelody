@@ -31,12 +31,15 @@ namespace GuessMelody
 
                 listBox1.Items.Clear();
                 listBox1.Items.AddRange(music_list);
+                Victorina.list.Clear();
+                Victorina.list.AddRange(music_list);
             }
         }
 
         private void buttonClearList_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+            Victorina.list.Clear();
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
