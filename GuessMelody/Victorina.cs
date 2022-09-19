@@ -10,6 +10,10 @@ namespace GuessMelody
 {
     public static class Victorina
     {
+        public static string P1 = "Игрок 1";
+        public static string P2 = "Игрок 2";
+        public static string P3 = "Игрок 3";
+
         public static List<string> MusicList = new List<string>();
         public static int GameDuration = 60;
         public static int MusicDuration = 10;
@@ -41,6 +45,8 @@ namespace GuessMelody
             {
                 registryKey = Registry.CurrentUser.CreateSubKey(RegKeyName);
                 if (registryKey == null) return;
+                registryKey.SetValue("Player1", P1);
+                registryKey.SetValue("Player2", P2);
                 registryKey.SetValue("LastFolder", LastFolder);
                 registryKey.SetValue("Random", RandomStart);
                 registryKey.SetValue("GameDuration", GameDuration);
@@ -61,6 +67,8 @@ namespace GuessMelody
                 registryKey = Registry.CurrentUser.CreateSubKey(RegKeyName);
                 if (registryKey != null)
                 {
+                    P1 = (string)registryKey.GetValue("Player1");
+                    P2 = (string)registryKey.GetValue("Player2");
                     LastFolder = (string)registryKey.GetValue("LastFolder");
                     RandomStart = Convert.ToBoolean(registryKey.GetValue("Random", false));
                     GameDuration = (int)registryKey.GetValue("GameDuration");

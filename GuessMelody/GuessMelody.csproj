@@ -58,6 +58,12 @@
     <Compile Include="FMain.Designer.cs">
       <DependentUpon>FMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMessage.Designer.cs">
+      <DependentUpon>FMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FParams.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMessage.resx">
+      <DependentUpon>FMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FParams.resx">
       <DependentUpon>FParams.cs</DependentUpon>

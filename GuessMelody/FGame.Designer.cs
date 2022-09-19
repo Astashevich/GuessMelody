@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FGame));
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.buttonNext = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelP1 = new System.Windows.Forms.Label();
+            this.labelP2 = new System.Windows.Forms.Label();
             this.labelCounter1 = new System.Windows.Forms.Label();
             this.labelCounter2 = new System.Windows.Forms.Label();
             this.buttonPause = new System.Windows.Forms.Button();
@@ -53,6 +53,7 @@
             this.WMP.Size = new System.Drawing.Size(213, 45);
             this.WMP.TabIndex = 0;
             this.WMP.Visible = false;
+            this.WMP.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.WMP_OpenStateChange);
             // 
             // buttonNext
             // 
@@ -65,25 +66,25 @@
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
-            // label1
+            // labelP1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(69, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 39);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Игрок 1";
+            this.labelP1.AutoSize = true;
+            this.labelP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelP1.Location = new System.Drawing.Point(69, 50);
+            this.labelP1.Name = "labelP1";
+            this.labelP1.Size = new System.Drawing.Size(139, 39);
+            this.labelP1.TabIndex = 2;
+            this.labelP1.Text = "Игрок 1";
             // 
-            // label2
+            // labelP2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(461, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 39);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Игрок 2";
+            this.labelP2.AutoSize = true;
+            this.labelP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelP2.Location = new System.Drawing.Point(461, 50);
+            this.labelP2.Name = "labelP2";
+            this.labelP2.Size = new System.Drawing.Size(139, 39);
+            this.labelP2.TabIndex = 3;
+            this.labelP2.Text = "Игрок 2";
             // 
             // labelCounter1
             // 
@@ -162,8 +163,8 @@
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.labelCounter2);
             this.Controls.Add(this.labelCounter1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelP2);
+            this.Controls.Add(this.labelP1);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.WMP);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -186,8 +187,8 @@
 
         private AxWMPLib.AxWindowsMediaPlayer WMP;
         private System.Windows.Forms.Button buttonNext;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelP1;
+        private System.Windows.Forms.Label labelP2;
         private System.Windows.Forms.Label labelCounter1;
         private System.Windows.Forms.Label labelCounter2;
         private System.Windows.Forms.Button buttonPause;

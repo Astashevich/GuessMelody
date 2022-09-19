@@ -13,8 +13,10 @@ namespace GuessMelody
     public partial class FGame : Form
     {
         Random random = new Random();
+        FMessage message = new FMessage();
 
         private int musicDuration;
+        private int gameDuration;
 
         public FGame()
         {
@@ -26,11 +28,12 @@ namespace GuessMelody
             if (Victorina.MusicList.Count == 0) EndGame();
             else
             {
-                musicDuration = Victorina.MusicDuration;
                 int number = random.Next(0, Victorina.MusicList.Count() - 1);
                 WMP.URL = Victorina.MusicList[number];
                 Victorina.MusicList.RemoveAt(number);
                 progressBar1.Value = 0;
+                buttonPause.Enabled = true;
+                buttonContinue.Enabled = true;
             }
         }
 
@@ -38,6 +41,7 @@ namespace GuessMelody
         {
             timer1.Start();
             labelSongCounter.Text = Convert.ToString(Convert.ToInt32(labelSongCounter.Text) - 1);
+            gameDuration--;
             MakeMusic();
         }
 
@@ -49,17 +53,27 @@ namespace GuessMelody
 
         private void FGame_Load(object sender, EventArgs e)
         {
-            labelSongCounter.Text = Victorina.MusicList.Count.ToString();
-            progressBar1.Maximum = Victorina.GameDuration;
+            musicDuration = Victorina.MusicDuration;
+            gameDuration = Victorina.GameDuration;
+            labelSongCounter.Text = gameDuration.ToString();
+            progressBar1.Maximum = musicDuration;
+            labelP1.Text = Victorina.P1;
+            labelP2.Text = Victorina.P2;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Value++;
-            musicDuration--;
             if (progressBar1.Value == progressBar1.Maximum)
             {
                 EndGame();
+                buttonPause.Enabled = false;
+                buttonContinue.Enabled = false;
+                return;
+            }
+            if (gameDuration <= 0)
+            {
+                buttonNext.Enabled = false;
                 return;
             }
         }
@@ -92,7 +106,8 @@ namespace GuessMelody
             if (e.KeyData == Keys.A)
             {
                 PauseGame();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 1", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                message.labelMessage.Text = Victorina.P1;
+                if (message.ShowDialog() == DialogResult.Yes)
                 {
                     labelCounter1.Text = Convert.ToString(Convert.ToInt32(labelCounter1.Text) + 1);
                 }
@@ -100,11 +115,19 @@ namespace GuessMelody
             if (e.KeyData == Keys.P)
             {
                 PauseGame();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 2", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                message.labelMessage.Text = Victorina.P2;
+                if (message.ShowDialog()== DialogResult.Yes)
                 {
                     labelCounter2.Text = Convert.ToString(Convert.ToInt32(labelCounter2.Text) + 1);
                 }
             }
+        }
+
+        private void WMP_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)
+        {
+            if (Victorina.RandomStart)
+                if (WMP.openState == WMPLib.WMPOpenState.wmposMediaOpen)
+                    WMP.Ctlcontrols.currentPosition = random.Next(0, (int)WMP.currentMedia.duration - musicDuration);
         }
     }
 }

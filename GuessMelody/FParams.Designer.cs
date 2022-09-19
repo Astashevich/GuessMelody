@@ -36,15 +36,15 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxPlayer2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPlayer1 = new System.Windows.Forms.ComboBox();
             this.cbRandomStart = new System.Windows.Forms.CheckBox();
             this.comboBoxMusicDuration = new System.Windows.Forms.ComboBox();
             this.comboBoxGameDuration = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelPlayer1 = new System.Windows.Forms.Label();
-            this.labelPlayer2 = new System.Windows.Forms.Label();
-            this.comboBoxPlayer1 = new System.Windows.Forms.ComboBox();
-            this.comboBoxPlayer2 = new System.Windows.Forms.ComboBox();
+            this.textBoxP1 = new System.Windows.Forms.TextBox();
+            this.textBoxP2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,10 +112,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxP2);
+            this.groupBox1.Controls.Add(this.textBoxP1);
             this.groupBox1.Controls.Add(this.comboBoxPlayer2);
             this.groupBox1.Controls.Add(this.comboBoxPlayer1);
-            this.groupBox1.Controls.Add(this.labelPlayer2);
-            this.groupBox1.Controls.Add(this.labelPlayer1);
             this.groupBox1.Controls.Add(this.cbRandomStart);
             this.groupBox1.Controls.Add(this.comboBoxMusicDuration);
             this.groupBox1.Controls.Add(this.comboBoxGameDuration);
@@ -127,6 +127,24 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Настройки игры";
+            // 
+            // comboBoxPlayer2
+            // 
+            this.comboBoxPlayer2.FormattingEnabled = true;
+            this.comboBoxPlayer2.Location = new System.Drawing.Point(329, 80);
+            this.comboBoxPlayer2.Name = "comboBoxPlayer2";
+            this.comboBoxPlayer2.Size = new System.Drawing.Size(48, 21);
+            this.comboBoxPlayer2.TabIndex = 8;
+            this.comboBoxPlayer2.Text = "P";
+            // 
+            // comboBoxPlayer1
+            // 
+            this.comboBoxPlayer1.FormattingEnabled = true;
+            this.comboBoxPlayer1.Location = new System.Drawing.Point(329, 42);
+            this.comboBoxPlayer1.Name = "comboBoxPlayer1";
+            this.comboBoxPlayer1.Size = new System.Drawing.Size(48, 21);
+            this.comboBoxPlayer1.TabIndex = 7;
+            this.comboBoxPlayer1.Text = "A";
             // 
             // cbRandomStart
             // 
@@ -189,44 +207,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Продолжительность игры";
             // 
-            // labelPlayer1
+            // textBoxP1
             // 
-            this.labelPlayer1.AutoSize = true;
-            this.labelPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.labelPlayer1.Location = new System.Drawing.Point(267, 42);
-            this.labelPlayer1.Name = "labelPlayer1";
-            this.labelPlayer1.Size = new System.Drawing.Size(58, 17);
-            this.labelPlayer1.TabIndex = 5;
-            this.labelPlayer1.Text = "Игрок 1";
-            this.labelPlayer1.Click += new System.EventHandler(this.label3_Click);
+            this.textBoxP1.Location = new System.Drawing.Point(268, 43);
+            this.textBoxP1.Name = "textBoxP1";
+            this.textBoxP1.Size = new System.Drawing.Size(55, 20);
+            this.textBoxP1.TabIndex = 9;
             // 
-            // labelPlayer2
+            // textBoxP2
             // 
-            this.labelPlayer2.AutoSize = true;
-            this.labelPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.labelPlayer2.Location = new System.Drawing.Point(267, 80);
-            this.labelPlayer2.Name = "labelPlayer2";
-            this.labelPlayer2.Size = new System.Drawing.Size(58, 17);
-            this.labelPlayer2.TabIndex = 6;
-            this.labelPlayer2.Text = "Игрок 2";
-            // 
-            // comboBoxPlayer1
-            // 
-            this.comboBoxPlayer1.FormattingEnabled = true;
-            this.comboBoxPlayer1.Location = new System.Drawing.Point(329, 42);
-            this.comboBoxPlayer1.Name = "comboBoxPlayer1";
-            this.comboBoxPlayer1.Size = new System.Drawing.Size(48, 21);
-            this.comboBoxPlayer1.TabIndex = 7;
-            this.comboBoxPlayer1.Text = "A";
-            // 
-            // comboBoxPlayer2
-            // 
-            this.comboBoxPlayer2.FormattingEnabled = true;
-            this.comboBoxPlayer2.Location = new System.Drawing.Point(329, 80);
-            this.comboBoxPlayer2.Name = "comboBoxPlayer2";
-            this.comboBoxPlayer2.Size = new System.Drawing.Size(48, 21);
-            this.comboBoxPlayer2.TabIndex = 8;
-            this.comboBoxPlayer2.Text = "P";
+            this.textBoxP2.Location = new System.Drawing.Point(268, 81);
+            this.textBoxP2.Name = "textBoxP2";
+            this.textBoxP2.Size = new System.Drawing.Size(55, 20);
+            this.textBoxP2.TabIndex = 10;
             // 
             // FParams
             // 
@@ -270,7 +263,7 @@
         private System.Windows.Forms.ComboBox comboBoxGameDuration;
         private System.Windows.Forms.ComboBox comboBoxPlayer2;
         private System.Windows.Forms.ComboBox comboBoxPlayer1;
-        private System.Windows.Forms.Label labelPlayer2;
-        private System.Windows.Forms.Label labelPlayer1;
+        private System.Windows.Forms.TextBox textBoxP2;
+        private System.Windows.Forms.TextBox textBoxP1;
     }
 }
