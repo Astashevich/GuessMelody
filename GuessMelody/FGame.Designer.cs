@@ -95,6 +95,7 @@
             this.labelCounter1.Size = new System.Drawing.Size(36, 39);
             this.labelCounter1.TabIndex = 4;
             this.labelCounter1.Text = "0";
+            this.labelCounter1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelCounter_MouseClick);
             // 
             // labelCounter2
             // 
@@ -105,6 +106,7 @@
             this.labelCounter2.Size = new System.Drawing.Size(36, 39);
             this.labelCounter2.TabIndex = 5;
             this.labelCounter2.Text = "0";
+            this.labelCounter2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelCounter_MouseClick);
             // 
             // buttonPause
             // 
@@ -132,7 +134,7 @@
             // 
             this.labelSongCounter.AutoSize = true;
             this.labelSongCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.25F);
-            this.labelSongCounter.Location = new System.Drawing.Point(330, 125);
+            this.labelSongCounter.Location = new System.Drawing.Point(321, 125);
             this.labelSongCounter.Name = "labelSongCounter";
             this.labelSongCounter.Size = new System.Drawing.Size(32, 36);
             this.labelSongCounter.TabIndex = 8;

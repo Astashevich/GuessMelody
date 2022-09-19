@@ -20,6 +20,7 @@ namespace GuessMelody
         public static bool RandomStart = false;
         public static string LastFolder = "";
         public static bool AllDirectories = false;
+        public static string Answer = "";
 
         public static string RegKeyName = "Software\\MyCompanyName\\GuessMelody";
 
