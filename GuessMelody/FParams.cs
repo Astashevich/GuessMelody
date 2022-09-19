@@ -46,6 +46,8 @@ namespace GuessMelody
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            Victorina.P1 = textBoxP1.Text;
+            Victorina.P2 = textBoxP2.Text;
             Victorina.AllDirectories = cbAllDirectory.Checked;
             Victorina.GameDuration = Convert.ToInt32(comboBoxGameDuration.Text);
             Victorina.MusicDuration = Convert.ToInt32(comboBoxMusicDuration.Text);
@@ -69,10 +71,17 @@ namespace GuessMelody
 
         private void SetParams()
         {
+            textBoxP1.Text = Victorina.P1;
+            textBoxP2.Text = Victorina.P2;
             cbAllDirectory.Checked = Victorina.AllDirectories;
             comboBoxGameDuration.Text = Victorina.GameDuration.ToString();
             comboBoxMusicDuration.Text = Victorina.MusicDuration.ToString();
             cbRandomStart.Checked = Victorina.RandomStart;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
